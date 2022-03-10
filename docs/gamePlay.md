@@ -1,10 +1,19 @@
 # Game Play
+(Please edit it this as more features are added so developers can have a sense of the game play and rules behind it)
 
 ## Basics
 - Admins can view all users that login to the website under the admin/users page. 
 - Admins can create, view, edit, and destroy commons
-    - commons initail params (name, user startig balance, cow price, milk price and start date, end date?)
+    - As of right now individual Commons represent different lectures in Proffessor Mattanjah's class
+    - Commons initail params (name, user startig balance, cow price, milk price and start date, end date, cowsPerUserThreshold)
+    - Commons additional variables (userCount)
+    - New Commons added to to Commons table 
+- Users can login to the application 
+    - This creates a new User in the User table 
 - Users can join commons
+    - When they do this creates a new UserCommons in the UserCommons commons table
+        - UserCommons can be thought of as a Users Farms in a Commons, A User can only have one UserCommons/Farm per Commons but they may have multiple UserCommons in multiple Commons
+        - UserCommons variables (totalWealth, cowCount, averageCowHealth)
 - Users can visit commons they are part of
     - Each user starts the game with their indvidual wealth equal to the commons total wealth
     - Users can buy and sell cows as much as their indvidual wealth allows
@@ -14,15 +23,9 @@
 
 ## Scheduled Events
 - At certain times during the day each active commons will fire off certain events that will help to facilite game play
-    - Every day at 4am every users cows will be milked and they will recieve a profit added to their individual total wealth
-        - individual wealth += milkPrice * (cows * cowHealth)?
+    - Every day at 11:40 every users cows will be milked and they will recieve a profit added to their individual total wealth
+        - Individual wealth += milkPrice * cows * cowHealth
     - Every 5 minutes the health of all cows in a commons will be increased or decreased depending on if the commons cows threshold is passed
-        - for each user averageCowHeath += (.01(threshold-cows))?
-    - Every 10 minutes cows will be killed if a users averageCowHealth is less than a threshold(.3?) 
-        - for each user if cowsHealth < threshold(.3?) then 1 in 100 chance a cow in that users commons will die
-
-## Changes Wanted for the game 
-- For simplification we moved away from representing each cow indvidually in the data base. As a start we want each user to just have a cow count and a running average cow health. This adds a complication for killing cows that we resolved by having a health threshold. For each user if their average cow helath goes below the threshold then there is a random chance that a cow in that user's farm will be killed. Later on we would like to group cows with similar health so we can track cow health more accuartely and kill cows when they are low or out of health. We would also like to add a report system that will auto generate reports. 
-    - Every 10 minutes cows will be killed if they have less than 0 health
-        - cow health < 0 then kill
-    - Every day at 5am each commons will create a report of commons(total number of cows, average cowHealth) and users(number of cows, averageCowHealth, indvidual wealth) 
+        - For each user averageCowHeath += (.01(userCount*cowsPerUserThreshold)-totalCows))
+    - Every day at 11:30 cows will be killed if a users averageCowHealth is less than .2
+        - For each user if cowsHealth < .2 then 1 in 100 chance a cow in that users commons will die
