@@ -25,7 +25,7 @@
 - At certain times during the day each active commons will fire off certain events that will help to facilite game play
     - Every day at 11:40 every users cows will be milked and they will recieve a profit added to their individual total wealth
         - Individual wealth += milkPrice * cows * cowHealth
-    - Every 5 minutes the health of all cows in a commons will be increased or decreased depending on if the commons cows threshold is passed
+    - Every 30 minutes the health of all cows in a commons will be increased or decreased depending on if the commons cows threshold is passed
         - For each user averageCowHeath += (.01(userCount*cowsPerUserThreshold)-totalCows))
     - Every day at 11:30 cows will be killed if a users averageCowHealth is less than .2
         - For each user if cowsHealth < .2 then 1 in 100 chance a cow in that users commons will die
