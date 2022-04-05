@@ -5,7 +5,6 @@ import AxiosMockAdapter from "axios-mock-adapter";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import commonsFixtures from "fixtures/commonsFixtures";
-
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 

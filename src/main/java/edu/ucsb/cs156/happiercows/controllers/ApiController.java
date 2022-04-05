@@ -4,7 +4,6 @@ import edu.ucsb.cs156.happiercows.errors.EntityNotFoundException;
 import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 
-// import edu.ucsb.cs156.happiercows.entities.User;
 import edu.ucsb.cs156.happiercows.models.CurrentUser;
 import edu.ucsb.cs156.happiercows.services.CurrentUserService;
 import lombok.extern.slf4j.Slf4j;

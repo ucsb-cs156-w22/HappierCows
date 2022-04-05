@@ -43,6 +43,18 @@ public class UserCommonsController extends ApiController {
     return userCommons;
   }
 
+  // @ApiOperation(value = "Get all User Commons for a commons")
+  // @PreAuthorize("hasRole('ROLE_ADMIN')")
+  // @GetMapping("")
+  // public UserCommons getUserCommonsByCommonsId(
+  //     @ApiParam("commonsId") @RequestParam Long commonsId) throws JsonProcessingException {
+
+  //   UserCommons userCommons = userCommonsRepository.findByCommonsId(commonsId)
+  //       .orElseThrow(
+  //           () -> new EntityNotFoundException(UserCommons.class, "commonsId", commonsId, "userId", userId));
+  //   return userCommons;
+  // }
+
   @ApiOperation(value = "Get a user commons for current user")
   @PreAuthorize("hasRole('ROLE_USER')")
   @GetMapping("/forcurrentuser")

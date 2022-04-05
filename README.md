@@ -81,6 +81,14 @@ If you get the following message on Heroku, it probably means that you failed to
 Failed to connect to the frontend server... On Heroku, be sure that PRODUCTION is defined.  On localhost, open a second terminal window, cd into frontend and type: npm install; npm start";
 ```
 
+You will also want to set the internal api key in the production app, which is used for authenticating
+communication between internal services and the backend.
+```bash
+heroku config:set INTERNAL_API_KEY=<random string> --app <heroku app name>
+```
+Where `<random string>` is any sufficiently random string of characters. You can use a site like
+http://www.unit-conversion.info/texttools/random-string-generator/ to generate this string, if you'd like.
+
 # Accessing swagger
 
 To access the swagger API endpoints, use:
